@@ -7,12 +7,10 @@ public class boj14888 {
 	static int min = 1000000000;
 	static int max = -1000000000;
 	static int result = 0;
-	static int[] temp;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
 		nums = new int[n];
-		temp = new int[n];
 		for(int i = 0; i<n; i++) {
 			nums[i] = sc.nextInt();
 		}
@@ -20,7 +18,6 @@ public class boj14888 {
 			oper[i] = sc.nextInt();
 		}
 		result = nums[0];
-		temp[0] = result;
 		dfs(0);
 		System.out.println(max);
 		System.out.println(min);
@@ -39,9 +36,8 @@ public class boj14888 {
 			if(oper[i] > 0) {
 				oper[i]--;
 				getResult(i, depth);
-				temp[depth + 1] = result;
 				dfs(depth + 1);
-				result = temp[depth];
+				rollback(i, depth);
 				oper[i]++;
 			}
 		}
@@ -60,6 +56,24 @@ public class boj14888 {
 				break;
 			case 3:
 				result = result / nums[depth+1];
+				break;
+			default:
+				break;
+		}
+	}
+	static void rollback(int i, int depth) {
+		switch(i) {
+			case 0:
+				result = result - nums[depth+1];
+				break;
+			case 1:
+				result = result + nums[depth+1];
+				break;
+			case 2:
+				result = result / nums[depth+1];
+				break;
+			case 3:
+				result = result * nums[depth+1];
 				break;
 			default:
 				break;
