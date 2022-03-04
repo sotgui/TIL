@@ -16,16 +16,11 @@ public class boj11053 {
 		System.out.println(dp(n-1));
 	}
 	static int dp(int i) {
-		if(i == 0) {
-			max[i] = 1;
-		}
 		if(max[i] == -1) {
+			max[i] = 1;
 			for(int j = i-1; j>=0; j--) {
 				if(arr[j] < arr[i]) {
-					max[i] = dp(j) + 1;
-					break;
-				}else {
-					max[i] = Math.max(dp(j), max[i]);
+					max[i] = Math.max(max[i], dp(j) + 1);
 				}
 			}
 		}
