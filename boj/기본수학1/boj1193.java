@@ -7,7 +7,7 @@ public class boj1193 {
 		int count = n;
 		int a = 1;
 		int b = 1;
-		for(int i = 1; i<n; i++) {
+		for(int i = 1; i<=n; i++) {
 			if(count - i <= 0) {
 				if(i % 2 == 0) {
 					a = count;
