@@ -53,20 +53,36 @@ public class boj17144 {
 				if(A[i][j] != 0) {		// 미세먼지가 있다면
 					int count = 0;
 					if(i+1 < r) {
-						after[i+1][j] += A[i][j] / 5;
-						count++;
+						if(j == 0) {
+							if(i+1 != upper && i+1 != lower) {
+								after[i+1][j] += A[i][j] / 5;
+								count++;
+							}
+						}else {
+							after[i+1][j] += A[i][j] / 5;
+							count++;
+						}
 					}
 					if(i-1 >= 0) {
-						after[i-1][j] += A[i][j] / 5;
-						count++;
+						if(j == 0) {
+							if(i-1 != upper && i-1 != lower) {
+								after[i-1][j] += A[i][j] / 5;
+								count++;
+							}
+						}else {
+							after[i-1][j] += A[i][j] / 5;
+							count++;
+						}
 					}
 					if(j+1 < c) {
 						after[i][j+1] += A[i][j] / 5;
 						count++;
 					}
-					if(j-1 == 0 && i != upper && i != lower) {
-						after[i][j-1] += A[i][j] / 5;
-						count++;
+					if(j-1 == 0) {
+						if(i != upper && i != lower) {
+							after[i][j-1] += A[i][j] / 5;
+							count++;
+						}
 					}else if(j-1 > 0) {
 						after[i][j-1] += A[i][j] / 5;
 						count++;
