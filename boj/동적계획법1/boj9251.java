@@ -20,11 +20,15 @@ public class boj9251 {
 
 	static int dp(int k) {
 		if(k == 0) {
-			lcs[k] = 0;
+			if(A[k] == B[k]) {
+				lcs[k] = 1;
+			}else {
+				lcs[k] = 0;
+			}
 		}
 		if(lcs[k] == -1) {
 			lcs[k] = 1;		// 기본으로 길이 1이므로 항상 1로 초기화
-			for(int i = k-1; i>=0; i--) {
+			for(int i = k; i>=0; i--) {
 				if(A[i] == B[k]) {	// 
 					lcs[k] = Math.max(lcs[k], dp(k-1) + 1);
 				}
