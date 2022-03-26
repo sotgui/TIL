@@ -9,4 +9,7 @@
 
 * LIS (Longest Increasing Subsequence)
   * 응용
-  * LCS (Longest Common Subsequence)
+  
+    
+  
+* LCS (Longest Common Subsequence)
