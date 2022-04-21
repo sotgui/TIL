@@ -5,6 +5,19 @@ public class boj1152 {
 		Scanner sc = new Scanner(System.in);
 		String str = sc.nextLine();
 		String[] result = str.split(" ");
-		System.out.println(result.length);
+		int count = 0;
+		for(int i = 0; i<result.length; i++) {
+			boolean flag = true;
+			for(int j = 0; j<result.length; j++) {
+				if(i == j) continue;
+				if(result[i].equals(result[j])) {
+					flag = false;
+				}
+			}
+			if(flag) {
+				count++;
+			}
+		}
+		System.out.println(count);
 	}
 }
