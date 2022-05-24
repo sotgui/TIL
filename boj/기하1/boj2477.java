@@ -21,8 +21,11 @@ public class boj2477 {
 				iMaxY = i;
 			}
 		}
-		if(iMaxX >= 4) iMaxX -= 6;
-		int a = maxX * maxY - l[iMaxX+2][1] * l[iMaxX+3][1];
+		int iSmallX = iMaxY + 3;
+		int iSmallY = iMaxX + 3;
+		if(iSmallX >= 6) iSmallX -= 6;
+		if(iSmallY >= 6) iSmallY -= 6;
+		int a = maxX * maxY - l[iSmallX][1] * l[iSmallY][1];
 		System.out.println(a*k);
 	}
 }
